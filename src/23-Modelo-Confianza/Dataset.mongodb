@@ -1,0 +1,70 @@
+
+use("platzi_store")
+
+//db.procesos.drop()
+
+db.procesos.insertMany([
+  {
+    _id: new ObjectId(), // puede ser una llave compuesta
+    nombre: "Modelo 5",
+    entidad:
+    {
+      id: 1,
+      entidad: "Compensar",
+      nit: "123456",
+      Razon: "Caja de compenesacion Familiar"
+
+    },
+
+    aplicacion:
+    {
+      id: "SWPR5",
+      nombre: "Portal 5",
+    },
+    ruta:
+      { id: "5",
+        Descripcion:"Modelo de 5",
+
+        estado:
+        {
+          estado_origen:{ 
+            id: "1", 
+            escenario:"1", 
+            descrición: "validacion" , 
+            actor: "Solicitante"},
+
+          estado_destino:{ 
+            id: "2", 
+            escenario:"1",
+            descrición: "aprobacion",
+            actor: "Aprobador Riego"}
+        },
+        
+        condicion:[
+          {
+            id: 1,
+            nivel_confianza:"bajo",
+            fech_apertura: ">6",
+            telfi: " ",  // ver como colocar dos valores ,
+            corfi: " ",
+            ind_fidelizacion: 2, // entrada
+            act_ult_mes: "si", // entrada
+            accion: "Datacredito" // entrada
+          },
+          {
+            id: 2,
+            nivel_confianza:"bajo",
+            fech_apertura: ">6",
+            telfi: " ",  // ver como colocar dos valores ,
+            corfi: " ",
+            ind_fidelizacion: 2, // entrada
+            act_ult_mes: "si", // entrada
+            accion: "Datacredito" // entrada
+          }
+        ]
+        
+      }
+  },
+])
+
+db.procesos.find()
